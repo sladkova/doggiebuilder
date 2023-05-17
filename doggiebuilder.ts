@@ -1,24 +1,108 @@
-const nameValidationRegex = /^[a-z ,.'-]+$/i
-const phoneValidationRegex =
+const NAME_VALIDATION_REGEX = /^[а-яіґїє ,.'-]+$/i
+const PHONE_VALIDATION_REGEX =
 	/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
 
-class DoggieBuilder {
-	id = ''
-	name = ''
-	height = 0
-	weight = 0
-	phone = ''
-	owner = ''
-	favoriteToy = ''
+class Doggie {
+	public id = ''
+	private _name = ''
+	public height = 0
+	public weight = 0
+	private _phone = ''
+	private _owner = ''
+	public favoriteToy = ''
 
-	constructor(name) {
-		this.name = name
+	public get name() {
+		return this._name
 	}
 
-	//опишіть setters для полів класу
+	public set name(name: string) {
+		if (this.nameValidation(name, 'Name')) {
+			this._name = name
+		}
+	}
+
+	public get owner() {
+		return this._owner
+	}
+
+	public set owner(ownerName: string) {
+		if (this.nameValidation(ownerName, 'Owner')) {
+			this._owner = ownerName
+		}
+	}
+
+	public get phone() {
+		return this._phone
+	}
+
+	public set phone(phone: string) {
+		if (this.phoneValidation(phone)) {
+			this._phone = phone
+		}
+	}
+
+	private nameValidation(name: string, type: string) {
+		if (!NAME_VALIDATION_REGEX.test(name)) {
+			throw new Error(`${type} is not valid`)
+		}
+
+		return true
+	}
+
+	private phoneValidation(phone: string) {
+		if (!PHONE_VALIDATION_REGEX.test(phone)) {
+			throw new Error('Phone is not valid')
+		}
+
+		return true
+	}
+}
+
+class DoggieBuilder extends Doggie {
+	private doggie!: Doggie
+
+	constructor(name: string) {
+		super()
+
+		this.reset()
+
+		this.doggie.name = name
+	}
+
+	setHeight(height: number) {
+		this.doggie.height = height
+
+		return this
+	}
+
+	setWeight(weight: number) {
+		this.doggie.weight = weight
+
+		return this
+	}
+
+	setOwner(ownerName: string) {
+		this.doggie.owner = ownerName
+
+		return this
+	}
+
+	setPhone(phone: string) {
+		this.doggie.phone = phone
+
+		return this
+	}
 
 	build() {
-		// опишіть функцію
+		const result = this.doggie
+
+		this.reset()
+
+		return result
+	}
+
+	private reset() {
+		this.doggie = new Doggie()
 	}
 }
 
