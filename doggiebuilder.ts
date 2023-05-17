@@ -4,40 +4,40 @@ const PHONE_VALIDATION_REGEX =
 
 class Doggie {
 	public id = ''
-	private _name = ''
+	#name = ''
 	public height = 0
 	public weight = 0
-	private _phone = ''
-	private _owner = ''
+	#phone = ''
+	#owner = ''
 	public favoriteToy = ''
 
 	public get name() {
-		return this._name
+		return this.#name
 	}
 
 	public set name(name: string) {
 		if (this.nameValidation(name, 'Name')) {
-			this._name = name
+			this.#name = name
 		}
 	}
 
 	public get owner() {
-		return this._owner
+		return this.#owner
 	}
 
 	public set owner(ownerName: string) {
 		if (this.nameValidation(ownerName, 'Owner')) {
-			this._owner = ownerName
+			this.#owner = ownerName
 		}
 	}
 
 	public get phone() {
-		return this._phone
+		return this.#phone
 	}
 
 	public set phone(phone: string) {
 		if (this.phoneValidation(phone)) {
-			this._phone = phone
+			this.#phone = phone
 		}
 	}
 
@@ -55,6 +55,18 @@ class Doggie {
 		}
 
 		return true
+	}
+
+	toObject() {
+		return {
+			id: this.id,
+			name: this.#name,
+			height: this.height,
+			weight: this.weight,
+			phone: this.#phone,
+			owner: this.#owner,
+			favoriteToy: this.favoriteToy
+		}
 	}
 }
 
@@ -108,6 +120,8 @@ class DoggieBuilder extends Doggie {
 
 const dog1 = new DoggieBuilder('Шарик').setHeight(60).setWeight(30).build()
 console.log(dog1)
+console.log('dog1:', dog1.toObject())
+console.log()
 
 const dog2 = new DoggieBuilder('Сірко')
 	.setHeight(40)
@@ -115,6 +129,8 @@ const dog2 = new DoggieBuilder('Сірко')
 	.setOwner('Микола')
 	.build()
 console.log(dog2)
+console.log('dog2:', dog2.toObject())
+console.log()
 
 const dog3 = new DoggieBuilder('Чорнищ')
 	.setHeight(50)
@@ -123,3 +139,4 @@ const dog3 = new DoggieBuilder('Чорнищ')
 	.setPhone('0687755643')
 	.build()
 console.log(dog3)
+console.log('dog3:', dog3.toObject())
