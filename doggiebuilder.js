@@ -1,4 +1,4 @@
-const nameValidationRegex = /^[a-z ,.'-]+$/i;
+const nameValidationRegex = /^[а-яіґїє ,.'-]+$/i
 const phoneValidationRegex =  /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
 class DoggieBuilder {
@@ -17,7 +17,7 @@ class DoggieBuilder {
    //опишіть setters для полів класу
 
     build() {
-      // опишіть функцію
+      // опишіть функцію, використайте nameValidationRegex і phoneValidationRegex
     }
 }
 
@@ -26,6 +26,8 @@ const dog1 = new DoggieBuilder('Шарик')
     .setWeight(30)
     .build();
 console.log(dog1);
+
+
 
 const dog2 = new DoggieBuilder('Сірко')
     .setHeight(40)
