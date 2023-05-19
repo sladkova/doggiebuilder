@@ -1,0 +1,16 @@
+{
+	"name": "doggiebuilder",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/main.ts",
+	"scripts": {
+		"start": "ts-node src/main.ts",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"ts-node": "^10.9.1"
+	}
+}
