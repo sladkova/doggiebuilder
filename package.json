@@ -1,0 +1,19 @@
+{
+  "name": "12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "doggiebuilder.js",
+  "scripts": {
+    "start": "node doggiebuilder.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tarold/doggiebuilder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tarold/doggiebuilder/issues"
+  },
+  "homepage": "https://github.com/Tarold/doggiebuilder#readme"
+}
