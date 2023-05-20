@@ -23,7 +23,7 @@ class DoggieBuilder {
     if (nameValidationRegex.test(name)) {
       this.doggie.name = name
     } else {
-      console.log(new Error('Invalid name format'))
+      console.error('Invalid name format')
     }
   }
   setId (id) {
@@ -49,7 +49,7 @@ class DoggieBuilder {
     if (phoneValidationRegex.test(phone)) {
       this.doggie.phone = phone
     } else {
-      console.log(new Error('Invalid phone number format'))
+      console.error('Invalid phone number format')
     }
     return this
   }
